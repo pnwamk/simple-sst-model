@@ -1,0 +1,66 @@
+name:                basic-sst
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/pnwamk/semantic-subtyping-models
+license:             MIT
+license-file:        LICENSE
+author:              Andrew Kent
+maintainer:          pnwamk@gmail.com
+copyright:           2018 Andrew Kent
+category:            Languages
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Types.Base
+                     , Types.LazyBDD
+                     , Types.NSubtype
+                     , Types.Subtype
+                     , Types.Syntax
+                     , Types.NMetafunctions
+                     , Types.Metafunctions
+                     , Common.Primitives
+                     , Common.SetOps
+  build-depends:       base >= 4.7 && < 5
+                     , containers
+                     , QuickCheck
+  default-language:    Haskell2010
+
+                     
+executable basic-sst
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base >= 4.7 && < 5
+                     , basic-sst
+                     , containers
+                     , QuickCheck
+  default-language:    Haskell2010
+  other-modules: Common.Primitives
+               , Common.SetOps
+               , Types.Base
+               , Types.LazyBDD
+               , Types.NSubtype
+               , Types.Subtype
+               , Types.Syntax
+               , Types.NMetafunctions
+
+test-suite basic-sst-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , basic-sst
+                     , hspec
+                     , QuickCheck
+  ghc-options:       -Wall -threaded -rtsopts -with-rtsopts=-N
+  other-modules:     Types.NSubtypeSpec
+                   , Types.SubtypeSpec
+                   , Types.SubtypeTests
+                   , Types.SubtypeCompSpec
+                   , Types.NMetafunctionsSpec
+                   , Types.MetafunctionsSpec
+  default-language:    Haskell2010
