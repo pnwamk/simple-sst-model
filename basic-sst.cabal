@@ -2,7 +2,7 @@ name:                basic-sst
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/pnwamk/semantic-subtyping-models
+homepage:            https://github.com/pnwamk/simple-sst-model
 license:             MIT
 license-file:        LICENSE
 author:              Andrew Kent
